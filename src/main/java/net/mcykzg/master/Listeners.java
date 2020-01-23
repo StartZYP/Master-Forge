@@ -47,7 +47,7 @@ public class Listeners implements Listener {
     public void onLevelUp(PlayerLevelChangeEvent e) {
         Player p = e.getPlayer();
         int level = e.getNewLevel();
-        if (level >= 300 && this.instance.hasMaster(p.getName())) {
+        if (level >= this.instance.getConfig().getInt("GraduteLevel") && this.instance.hasMaster(p.getName())) {
             p.sendMessage(this.instance.getConfig().getString("OverMess1"));
             String master = this.instance.getMyMaster(p.getName());
             Player masterP = Bukkit.getPlayerExact(master);
